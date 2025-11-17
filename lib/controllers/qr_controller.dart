@@ -64,18 +64,8 @@ class QRController {
       return {'isValid': false, 'message': 'QR Code is not valid for today'};
     }
 
-    // Check class time range
-    final currentTime =
-        '${now.hour.toString().padLeft(2, '0')}:${now.minute.toString().padLeft(2, '0')}';
-    if (currentTime.compareTo(qrData.startTime) < 0 ||
-        currentTime.compareTo(qrData.endTime) > 0) {
-      return {
-        'isValid': false,
-        'message':
-            'Current time is outside the class time range (${qrData.startTime} - ${qrData.endTime})',
-      };
-    }
-
+    // QR is valid if not expired and date matches
+    // startTime and endTime are for record-keeping only (shown in PDF/Excel)
     return {'isValid': true, 'message': 'QR Code is valid'};
   }
 }
