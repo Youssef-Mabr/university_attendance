@@ -222,10 +222,21 @@ class _ViewAttendanceScreenNewState extends State<ViewAttendanceScreenNew> {
 
             if (!groupedBySession.containsKey(sessionId)) {
               groupedBySession[sessionId] = [];
+
+              // Extract date from timestamp
+              final timestamp = data['timestamp'] as Timestamp?;
+              final date = timestamp != null
+                  ? DateFormat('dd/MM/yyyy').format(timestamp.toDate())
+                  : 'N/A';
+
+              // Get day and time
+              final day = data['day'] ?? 'N/A';
+              final startTime = data['startTime'] ?? 'N/A';
+
               sessionInfo[sessionId] = {
                 'subject': data['subject'] ?? 'N/A',
-                'date': data['date'] ?? 'N/A',
-                'classTime': data['classTime'] ?? 'N/A',
+                'date': date,
+                'classTime': '$day at $startTime',
               };
             }
             groupedBySession[sessionId]!.add(doc);
