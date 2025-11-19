@@ -186,22 +186,15 @@ class _RoleSelectionScreenState extends State<RoleSelectionScreen> {
               ),
               const SizedBox(height: 20),
 
-              // Register Button (for students)
-              OutlinedButton(
+              // Register Button
+              TextButton(
                 onPressed: _navigateToRegister,
-                style: OutlinedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: 16),
-                  side: const BorderSide(color: AppColors.primary, width: 2),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
                 child: const Text(
-                  'Register (Students Only)',
+                  'Register',
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.primary,
+                    color: Colors.blue,
                   ),
                 ),
               ),
