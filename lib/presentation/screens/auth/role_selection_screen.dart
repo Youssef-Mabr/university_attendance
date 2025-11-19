@@ -168,7 +168,7 @@ class _RoleSelectionScreenState extends State<RoleSelectionScreen> {
                 inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                 decoration: InputDecoration(
                   labelText: 'Enter your ID',
-                  hintText: 'Student (12 digits) or Teacher (4 digits)',
+                  hintText: 'Enter your ID',
                   prefixIcon: const Icon(Icons.badge),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -203,44 +203,6 @@ class _RoleSelectionScreenState extends State<RoleSelectionScreen> {
                     fontWeight: FontWeight.bold,
                     color: AppColors.primary,
                   ),
-                ),
-              ),
-
-              const SizedBox(height: 30),
-
-              // Info text
-              Container(
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  color: Colors.blue.shade50,
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Icon(Icons.info_outline, color: Colors.blue.shade700),
-                        const SizedBox(width: 8),
-                        Text(
-                          'ID Format',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.blue.shade700,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 8),
-                    Text(
-                      '• Students: 12-digit ID',
-                      style: TextStyle(color: Colors.blue.shade900),
-                    ),
-                    Text(
-                      '• Teachers: 4-digit Staff ID',
-                      style: TextStyle(color: Colors.blue.shade900),
-                    ),
-                  ],
                 ),
               ),
             ],
