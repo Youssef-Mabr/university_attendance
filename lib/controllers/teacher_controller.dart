@@ -127,4 +127,24 @@ class TeacherController {
       return [];
     }
   }
+
+  // Get teacher by staffId
+  Future<TeacherModel?> getTeacherByStaffId(String staffId) async {
+    try {
+      final query = await _firestore
+          .collection('teachers')
+          .where('staffId', isEqualTo: staffId)
+          .limit(1)
+          .get();
+
+      if (query.docs.isNotEmpty) {
+        final doc = query.docs.first;
+        return TeacherModel.fromMap(doc.data(), doc.id);
+      }
+      return null;
+    } catch (e) {
+      print('Error getting teacher by staffId: $e');
+      return null;
+    }
+  }
 }
